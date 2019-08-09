@@ -18,11 +18,12 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= product.sku_code %></td>
+        <td>
+          <%= link_to product.sku_code, edit_product_path(product) %></td>
         <td><%= product.name %></td>
         <td><%= product.price %></td>
         <% product.product_warehouses.each do |product_warehouse| %>
-          <% class_name = product_warehouse.item_count < product_warehouse.low_item_threshold ? "red" : ""%>
+          <% class_name = product_warehouse.item_count < product_warehouse.low_item_threshold ? "lightcoral" : ""%>
           <td style="background-color:<%=class_name%>;"><%= product_warehouse.item_count %></td>
         <% end %>
         <td><%= link_to 'Show', product %>

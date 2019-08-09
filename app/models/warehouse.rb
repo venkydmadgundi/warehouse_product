@@ -6,9 +6,9 @@ class Warehouse < ApplicationRecord
   validates :wh_code, uniqueness: true, length: { in: 4..16 }
   validates :max_capacity, numericality: { only_integer: {greater_than: 0} }
 
-  def generate_warehouses_products(products, below_threshold=false)
+  def generate_warehouses_products(products, below_threshold=false, new_product=false)
     products.each do |product|
-      count = below_threshold ? rand(1..PRODUCT_THRESHOLD-1) : rand(PRODUCT_THRESHOLD+1..100)
+      count = new_product ? 0 : (below_threshold ? rand(1..PRODUCT_THRESHOLD-1) : rand(PRODUCT_THRESHOLD+1..100))
       product_warehouses.create!(product: product, item_count: count, low_item_threshold: PRODUCT_THRESHOLD)
     end
   end

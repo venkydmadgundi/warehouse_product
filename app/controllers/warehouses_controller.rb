@@ -28,6 +28,7 @@ class WarehousesController < ApplicationController
 
     respond_to do |format|
       if @warehouse.save
+        @warehouse.generate_warehouses_products(Product.all, false, true)
         format.html { redirect_to @warehouse, notice: 'Warehouse was successfully created.' }
         format.json { render :show, status: :created, location: @warehouse }
       else
