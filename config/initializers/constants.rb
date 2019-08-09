@@ -1,0 +1,1 @@
+PRODUCT_THRESHOLD = 10.freeze

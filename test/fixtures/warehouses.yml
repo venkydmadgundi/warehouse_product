@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  wh_code: MyString
+  name: MyString
+  pincode: MyString
+  max_capacity: 1
+
+two:
+  wh_code: MyString
+  name: MyString
+  pincode: MyString
+  max_capacity: 1
