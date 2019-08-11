@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe "products/index", type: :view do
   before(:each) do
     assign(:products, [
-      Product.create!(),
-      Product.create!()
+      Product.create!(sku_code: "01010101", name: "Test1", price: 33.50),
+      Product.create!(sku_code: "12121212", name: "Test2", price: 93.25)
     ])
   end
 
