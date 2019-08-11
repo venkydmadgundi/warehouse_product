@@ -5,16 +5,24 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version: ruby 2.6.0
 
-* System dependencies
+* System dependencies: OSX
 
 * Configuration
 
 * Database creation
+  `bin/run db:create`
 
-* Database initialization
-
+### Run migrattion
+```
+	bin/run db:migrate
+```
+### Run seed
+  ```
+	bin/run db:seed
+	```
+	
 * How to run the test suite
 
 * Services (job queues, cache servers, search engines, etc.)
