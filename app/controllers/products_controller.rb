@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :destroy]
+  before_action :set_product_with_warehouse, only: [:edit, :update]
 
   # GET /products
   # GET /products.json
@@ -68,8 +69,12 @@ class ProductsController < ApplicationController
       @product = Product.find(params[:id])
     end
 
+    def set_product_with_warehouse
+      @product = Product.includes(product_warehouses: :warehouse).find params[:id]
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:sku_code, :name, :price)
+      params.require(:product).permit(:sku_code, :name, :price, product_warehouses_attributes: [:id, :item_count, :low_item_threshold])
     end
 end
